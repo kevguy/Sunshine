@@ -196,7 +196,7 @@ public class ForecastFragment extends Fragment implements LoaderManager.LoaderCa
 
         // Set the AlarmManager to wake up the system
         am.set(AlarmManager.RTC_WAKEUP, System.currentTimeMillis() + 5000, pi);*/
-        
+
         SunshineSyncAdapter.syncImmediately(getActivity());
 
     }
