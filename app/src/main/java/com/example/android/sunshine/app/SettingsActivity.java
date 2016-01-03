@@ -76,16 +76,14 @@ public class SettingsActivity extends PreferenceActivity
         // Set the listener to watch for value changes.
         preference.setOnPreferenceChangeListener(this);
 
-        // Trigger the listener immediately with the preference's
-        // current value.
-        onPreferenceChange(preference,
+        // Set the preference summaries
+        setPreferenceSummary(preference,
                 PreferenceManager
                         .getDefaultSharedPreferences(preference.getContext())
                         .getString(preference.getKey(), ""));
     }
 
-    @Override
-    public boolean onPreferenceChange(Preference preference, Object value) {
+    private void setPreferenceSummary(Preference preference, Object value) {
         String stringValue = value.toString();
         String key = preference.getKey();
 
@@ -96,28 +94,35 @@ public class SettingsActivity extends PreferenceActivity
             int prefIndex = listPreference.findIndexOfValue(stringValue);
             if (prefIndex >= 0) {
                 preference.setSummary(listPreference.getEntries()[prefIndex]);
-            } else if (key.equals(getString(R.string.pref_location_key))){
-                @SunshineSyncAdapter.LocationStatus int status = Utility.getLocationStatus(this);
-                switch (status) {
-                    case SunshineSyncAdapter.LOCATION_STATUS_OK:
-                        preference.setSummary(stringValue);
-                        break;
-                    case SunshineSyncAdapter.LOCATION_STATUS_UNKNOWN:
-                        preference.setSummary(getString(R.string.pref_location_unknown_description, value.toString()));
-                        break;
-                    case SunshineSyncAdapter.LOCATION_STATUS_INVALID:
-                        preference.setSummary(getString(R.string.pref_location_error_description, value.toString()));
-                        break;
-                    default:
-                        // Note --- if the server is down we still assume the value
-                        // is valid
-                        preference.setSummary(stringValue);
-                }
+            }
+        } else if (key.equals(getString(R.string.pref_location_key))) {
+            @SunshineSyncAdapter.LocationStatus int status = Utility.getLocationStatus(this);
+            switch (status) {
+                case SunshineSyncAdapter.LOCATION_STATUS_OK:
+                    preference.setSummary(stringValue);
+                    break;
+                case SunshineSyncAdapter.LOCATION_STATUS_UNKNOWN:
+                    preference.setSummary(getString(R.string.pref_location_unknown_description, value.toString()));
+                    break;
+                case SunshineSyncAdapter.LOCATION_STATUS_INVALID:
+                    preference.setSummary(getString(R.string.pref_location_error_description, value.toString()));
+                    break;
+                default:
+                    // Note --- if the server is down we still assume the value
+                    // is valid
+                    preference.setSummary(stringValue);
             }
         } else {
             // For other preferences, set the summary to the value's simple string representation.
             preference.setSummary(stringValue);
         }
+
+    }
+
+    // This gets called before the preference is changed
+    @Override
+    public boolean onPreferenceChange(Preference preference, Object value) {
+        setPreferenceSummary(preference, value);
         return true;
     }
 
@@ -133,8 +138,13 @@ public class SettingsActivity extends PreferenceActivity
         } else if ( key.equals(getString(R.string.pref_units_key)) ) {
             // units have changed. update lists of weather entries accordingly
             getContentResolver().notifyChange(WeatherContract.WeatherEntry.CONTENT_URI, null);
+        } else if ( key.equals(getString(R.string.pref_location_status_key)) ) {
+            // our location status has changed.  Update the summary accordingly
+            Preference locationPreference = findPreference(getString(R.string.pref_location_key));
+            bindPreferenceSummaryToValue(locationPreference);
         }
     }
+
 
     @TargetApi(Build.VERSION_CODES.JELLY_BEAN)
     @Override
