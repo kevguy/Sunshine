@@ -204,7 +204,6 @@ public class ForecastFragment extends Fragment implements LoaderManager.LoaderCa
 
     // since we read the location when we create the loader, all we need to do is restart things
     void onLocationChanged( ) {
-        updateWeather();
         getLoaderManager().restartLoader(FORECAST_LOADER, null, this);
     }
 
@@ -246,6 +245,7 @@ public class ForecastFragment extends Fragment implements LoaderManager.LoaderCa
                     Log.d(LOG_TAG, "Couldn't call " + geoLocation.toString() + ", no receiving apps installed!");
                 }
             }
+
         }
     }
 
@@ -290,8 +290,8 @@ public class ForecastFragment extends Fragment implements LoaderManager.LoaderCa
             // If we don't need to restart the loader, and there's a desired position to restore
             // to, do so now.
             mListView.smoothScrollToPosition(mPosition);
-            updateEmptyView();
         }
+        updateEmptyView();
     }
 
     @Override
@@ -309,7 +309,7 @@ public class ForecastFragment extends Fragment implements LoaderManager.LoaderCa
     /*
         Updates the empty list view with contextually relevant information that the user can
         use to determine why they aren't seeing weather.
-    */
+     */
     private void updateEmptyView() {
         if ( mForecastAdapter.getCount() == 0 ) {
             TextView tv = (TextView) getView().findViewById(R.id.listview_forecast_empty);
@@ -338,8 +338,8 @@ public class ForecastFragment extends Fragment implements LoaderManager.LoaderCa
     }
 
     @Override
-    public void onSharedPreferenceChanged(SharedPreferences sharedPreferences, String key){
-        if (key.equals(getString(R.string.pref_location_status_key))) {
+    public void onSharedPreferenceChanged(SharedPreferences sharedPreferences, String key) {
+        if ( key.equals(getString(R.string.pref_location_status_key)) ) {
             updateEmptyView();
         }
     }
