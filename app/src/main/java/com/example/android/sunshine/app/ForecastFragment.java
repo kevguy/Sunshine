@@ -274,6 +274,7 @@ public class ForecastFragment extends Fragment implements LoaderManager.LoaderCa
             // If we don't need to restart the loader, and there's a desired position to restore
             // to, do so now.
             mListView.smoothScrollToPosition(mPosition);
+            updateEmptyView();
         }
     }
 

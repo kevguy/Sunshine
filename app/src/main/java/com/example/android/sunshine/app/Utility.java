@@ -248,12 +248,12 @@ public class Utility {
         return -1;
     }
 
-    /*
-    * Returns true if the network is available or about to become available.
-    *
-    * @param c Context used to get the ConnectivityManager
-    * @return
-    */
+    /**
+     * Returns true if the network is available or about to become available.
+     *
+     * @param c Context used to get the ConnectivityManager
+     * @return
+     */
     static public boolean isNetworkAvailable(Context c) {
         ConnectivityManager cm =
             (ConnectivityManager)c.getSystemService(Context.CONNECTIVITY_SERVICE);
