@@ -87,12 +87,12 @@ public class ForecastAdapter extends CursorAdapter {
                 //viewHolder.iconView.setImageResource(Utility.getIconResourceForWeatherCondition(weatherId));
                 break;
             }
-           default: {
+            default: {
                 // Get weather icon
                 fallbackIconId = Utility.getIconResourceForWeatherCondition(weatherId);
                 //viewHolder.iconView.setImageResource(Utility.getIconResourceForWeatherCondition(weatherId));
                 break;
-           }
+            }
         }
 
         Glide.with(mContext)
