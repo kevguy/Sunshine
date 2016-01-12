@@ -1,8 +1,20 @@
-package com.example.android.sunshine.app.gcm;
-
-/**
- * Created by kev on 1/4/16.
+/*
+ * Copyright (C) 2015 The Android Open Source Project
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *      http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
  */
+
+package com.example.android.sunshine.app.gcm;
 
 import android.app.NotificationManager;
 import android.app.PendingIntent;
@@ -24,12 +36,12 @@ import org.json.JSONObject;
 
 public class MyGcmListenerService extends GcmListenerService {
 
-
     private static final String TAG = "MyGcmListenerService";
 
     private static final String EXTRA_DATA = "data";
     private static final String EXTRA_WEATHER = "weather";
     private static final String EXTRA_LOCATION = "location";
+
     public static final int NOTIFICATION_ID = 1;
 
     /**
@@ -47,7 +59,6 @@ public class MyGcmListenerService extends GcmListenerService {
             String senderId = getString(R.string.gcm_defaultSenderId);
             if (senderId.length() == 0) {
                 Toast.makeText(this, "SenderID string needs to be set", Toast.LENGTH_LONG).show();
-
             }
             // Not a bad idea to check that the message is coming from your server.
             if ((senderId).equals(from)) {
@@ -67,7 +78,6 @@ public class MyGcmListenerService extends GcmListenerService {
             Log.i(TAG, "Received: " + data.toString());
         }
     }
-
 
     /**
      *  Put the message into a notification and post it.
