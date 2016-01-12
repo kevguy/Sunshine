@@ -383,8 +383,6 @@ public class SunshineSyncAdapter extends AbstractThreadedSyncAdapter {
 
                     int iconId = Utility.getIconResourceForWeatherCondition(weatherId);
                     Resources resources = context.getResources();
-                    //Bitmap largeIcon = BitmapFactory.decodeResource(resources,
-                    //        Utility.getArtResourceForWeatherCondition(weatherId));
                     int artResourceId = Utility.getArtResourceForWeatherCondition(weatherId);
                     String artUrl = Utility.getArtUrlForWeatherCondition(context, weatherId);
 
@@ -412,7 +410,6 @@ public class SunshineSyncAdapter extends AbstractThreadedSyncAdapter {
                         Log.e(LOG_TAG, "Error retrieving large icon from " + artUrl, e);
                         largeIcon = BitmapFactory.decodeResource(resources, artResourceId);
                     }
-
                     String title = context.getString(R.string.app_name);
 
                     // Define the text of the forecast.
