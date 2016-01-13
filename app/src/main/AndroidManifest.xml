@@ -70,6 +70,7 @@
             android:name=".data.WeatherProvider"
             android:exported="false"
             android:syncable="true" />
+
         <!-- SyncAdapter's dummy authentication service -->
         <service android:name=".sync.SunshineAuthenticatorService">
             <intent-filter>
@@ -79,6 +80,7 @@
                 android:name="android.accounts.AccountAuthenticator"
                 android:resource="@xml/authenticator" />
         </service>
+
         <!-- The SyncAdapter service -->
         <service
             android:name=".sync.SunshineSyncService"
