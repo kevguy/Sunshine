@@ -36,7 +36,6 @@ public class LocationEditTextPreference extends EditTextPreference {
 
     public LocationEditTextPreference(Context context, AttributeSet attrs) {
         super(context, attrs);
-
         TypedArray a = context.getTheme().obtainStyledAttributes(
                 attrs,
                 R.styleable.LocationEditTextPreference,

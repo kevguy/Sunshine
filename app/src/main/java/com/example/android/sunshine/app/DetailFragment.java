@@ -180,8 +180,8 @@ public class DetailFragment extends Fragment implements LoaderManager.LoaderCall
             );
         }
         ViewParent vp = getView().getParent();
-        if (vp instanceof CardView) {
-            ((View) vp).setVisibility(View.INVISIBLE);
+        if ( vp instanceof CardView ) {
+            ((View)vp).setVisibility(View.INVISIBLE);
         }
         return null;
     }
@@ -190,8 +190,8 @@ public class DetailFragment extends Fragment implements LoaderManager.LoaderCall
     public void onLoadFinished(Loader<Cursor> loader, Cursor data) {
         if (data != null && data.moveToFirst()) {
             ViewParent vp = getView().getParent();
-            if (vp instanceof CardView) {
-                ((View) vp).setVisibility(View.INVISIBLE);
+            if ( vp instanceof CardView ) {
+                ((View)vp).setVisibility(View.VISIBLE);
             }
 
             // Read weather condition ID from cursor
