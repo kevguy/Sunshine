@@ -1,0 +1,10 @@
+[
+    {
+        "merged": "/home/kev/Desktop/Sunshine/app/build/intermediates/res/merged/debug/layout-land/list_item_forecast_today.xml",
+        "source": "/home/kev/Desktop/Sunshine/app/src/main/res/layout-land/list_item_forecast_today.xml"
+    },
+    {
+        "merged": "/home/kev/Desktop/Sunshine/app/build/intermediates/res/merged/debug/layout-land/fragment_main.xml",
+        "source": "/home/kev/Desktop/Sunshine/app/src/main/res/layout-land/fragment_main.xml"
+    }
+]

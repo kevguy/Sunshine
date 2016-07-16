@@ -1,0 +1,22 @@
+[
+    {
+        "merged": "/home/kev/Desktop/Sunshine/app/build/intermediates/res/merged/debug/xml/authenticator.xml",
+        "source": "/home/kev/Desktop/Sunshine/app/src/main/res/xml/authenticator.xml"
+    },
+    {
+        "merged": "/home/kev/Desktop/Sunshine/app/build/intermediates/res/merged/debug/xml/syncadapter.xml",
+        "source": "/home/kev/Desktop/Sunshine/app/src/main/res/xml/syncadapter.xml"
+    },
+    {
+        "merged": "/home/kev/Desktop/Sunshine/app/build/intermediates/res/merged/debug/xml/pref_general.xml",
+        "source": "/home/kev/Desktop/Sunshine/app/src/main/res/xml/pref_general.xml"
+    },
+    {
+        "merged": "/home/kev/Desktop/Sunshine/app/build/intermediates/res/merged/debug/xml/widget_info_today.xml",
+        "source": "/home/kev/Desktop/Sunshine/app/src/main/res/xml/widget_info_today.xml"
+    },
+    {
+        "merged": "/home/kev/Desktop/Sunshine/app/build/intermediates/res/merged/debug/xml/widget_info_detail.xml",
+        "source": "/home/kev/Desktop/Sunshine/app/src/main/res/xml/widget_info_detail.xml"
+    }
+]

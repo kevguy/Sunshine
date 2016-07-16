@@ -1,0 +1,18 @@
+[
+    {
+        "merged": "/home/kev/Desktop/Sunshine/app/build/intermediates/res/merged/debug/menu/main.xml",
+        "source": "/home/kev/Desktop/Sunshine/app/src/main/res/menu/main.xml"
+    },
+    {
+        "merged": "/home/kev/Desktop/Sunshine/app/build/intermediates/res/merged/debug/menu/detail.xml",
+        "source": "/home/kev/Desktop/Sunshine/app/src/main/res/menu/detail.xml"
+    },
+    {
+        "merged": "/home/kev/Desktop/Sunshine/app/build/intermediates/res/merged/debug/menu/detailfragment.xml",
+        "source": "/home/kev/Desktop/Sunshine/app/src/main/res/menu/detailfragment.xml"
+    },
+    {
+        "merged": "/home/kev/Desktop/Sunshine/app/build/intermediates/res/merged/debug/menu/forecastfragment.xml",
+        "source": "/home/kev/Desktop/Sunshine/app/src/main/res/menu/forecastfragment.xml"
+    }
+]

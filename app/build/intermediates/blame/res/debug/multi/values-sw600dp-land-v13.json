@@ -1,0 +1,26 @@
+[
+    {
+        "outputFile": "/home/kev/Desktop/Sunshine/app/build/intermediates/res/merged/debug/values-sw600dp-land-v13/values-sw600dp-land-v13.xml",
+        "map": [
+            {
+                "to": {
+                    "startLine": 2,
+                    "startColumn": 4,
+                    "startOffset": 55,
+                    "endColumn": 91,
+                    "endOffset": 142
+                },
+                "from": {
+                    "file": "/home/kev/Desktop/Sunshine/app/src/main/res/values-sw600dp-land/refs.xml",
+                    "position": {
+                        "startLine": 17,
+                        "startColumn": 4,
+                        "startOffset": 692,
+                        "endColumn": 91,
+                        "endOffset": 779
+                    }
+                }
+            }
+        ]
+    }
+]

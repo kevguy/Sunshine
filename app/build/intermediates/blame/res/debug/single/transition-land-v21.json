@@ -1,0 +1,10 @@
+[
+    {
+        "merged": "/home/kev/Desktop/Sunshine/app/build/intermediates/res/merged/debug/transition-land-v21/details_window_return_transition.xml",
+        "source": "/home/kev/Desktop/Sunshine/app/src/main/res/transition-land-v21/details_window_return_transition.xml"
+    },
+    {
+        "merged": "/home/kev/Desktop/Sunshine/app/build/intermediates/res/merged/debug/transition-land-v21/details_window_enter_transition.xml",
+        "source": "/home/kev/Desktop/Sunshine/app/src/main/res/transition-land-v21/details_window_enter_transition.xml"
+    }
+]
