@@ -1,6 +1,6 @@
 -- Merging decision tree log ---
 manifest
-ADDED from /home/kev/Desktop/Sunshine/app/src/main/AndroidManifest.xml:16:1-175:12
+ADDED from /home/kev/Desktop/Sunshine/app/src/main/AndroidManifest.xml:16:1-188:12
 	xmlns:android
 		ADDED from /home/kev/Desktop/Sunshine/app/src/main/AndroidManifest.xml:16:11-69
 	package
@@ -64,7 +64,7 @@ ADDED from /home/kev/Desktop/Sunshine/app/src/main/AndroidManifest.xml:41:5-88
 	android:name
 		ADDED from /home/kev/Desktop/Sunshine/app/src/main/AndroidManifest.xml:41:22-85
 application
-ADDED from /home/kev/Desktop/Sunshine/app/src/main/AndroidManifest.xml:43:5-173:19
+ADDED from /home/kev/Desktop/Sunshine/app/src/main/AndroidManifest.xml:43:5-186:19
 MERGED from [com.google.android.gms:play-services-measurement:8.3.0] /home/kev/Desktop/Sunshine/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-measurement/8.3.0/AndroidManifest.xml:26:5-46:19
 MERGED from [com.google.android.gms:play-services-basement:8.3.0] /home/kev/Desktop/Sunshine/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-basement/8.3.0/AndroidManifest.xml:20:5-24:19
 MERGED from [com.android.support:support-v4:23.3.0] /home/kev/Desktop/Sunshine/app/build/intermediates/exploded-aar/com.android.support/support-v4/23.3.0/AndroidManifest.xml:22:5-20
@@ -79,6 +79,9 @@ MERGED from [com.google.android.gms:play-services-gcm:8.3.0] /home/kev/Desktop/S
 MERGED from [com.google.android.gms:play-services-basement:8.3.0] /home/kev/Desktop/Sunshine/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-basement/8.3.0/AndroidManifest.xml:20:5-24:19
 MERGED from [com.android.support:support-v4:23.3.0] /home/kev/Desktop/Sunshine/app/build/intermediates/exploded-aar/com.android.support/support-v4/23.3.0/AndroidManifest.xml:22:5-20
 MERGED from [com.google.android.gms:play-services-measurement:8.3.0] /home/kev/Desktop/Sunshine/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-measurement/8.3.0/AndroidManifest.xml:26:5-46:19
+MERGED from [com.google.android.gms:play-services-basement:8.3.0] /home/kev/Desktop/Sunshine/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-basement/8.3.0/AndroidManifest.xml:20:5-24:19
+MERGED from [com.android.support:support-v4:23.3.0] /home/kev/Desktop/Sunshine/app/build/intermediates/exploded-aar/com.android.support/support-v4/23.3.0/AndroidManifest.xml:22:5-20
+MERGED from [com.google.android.gms:play-services-wearable:8.3.0] /home/kev/Desktop/Sunshine/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-wearable/8.3.0/AndroidManifest.xml:19:5-20
 MERGED from [com.google.android.gms:play-services-basement:8.3.0] /home/kev/Desktop/Sunshine/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-basement/8.3.0/AndroidManifest.xml:20:5-24:19
 MERGED from [com.android.support:support-v4:23.3.0] /home/kev/Desktop/Sunshine/app/build/intermediates/exploded-aar/com.android.support/support-v4/23.3.0/AndroidManifest.xml:22:5-20
 MERGED from [com.android.support:gridlayout-v7:23.3.0] /home/kev/Desktop/Sunshine/app/build/intermediates/exploded-aar/com.android.support/gridlayout-v7/23.3.0/AndroidManifest.xml:22:5-20
@@ -285,6 +288,22 @@ ADDED from /home/kev/Desktop/Sunshine/app/src/main/AndroidManifest.xml:169:9-171
 		ADDED from /home/kev/Desktop/Sunshine/app/src/main/AndroidManifest.xml:171:13-37
 	android:name
 		ADDED from /home/kev/Desktop/Sunshine/app/src/main/AndroidManifest.xml:170:13-58
+service#com.example.android.sunshine.app.wearable.WearableIntentService
+ADDED from /home/kev/Desktop/Sunshine/app/src/main/AndroidManifest.xml:173:9-176:47
+	android:exported
+		ADDED from /home/kev/Desktop/Sunshine/app/src/main/AndroidManifest.xml:176:13-36
+	android:enabled
+		ADDED from /home/kev/Desktop/Sunshine/app/src/main/AndroidManifest.xml:175:13-35
+	android:name
+		ADDED from /home/kev/Desktop/Sunshine/app/src/main/AndroidManifest.xml:174:13-59
+receiver#com.example.android.sunshine.app.wearable.WearableProvider
+ADDED from /home/kev/Desktop/Sunshine/app/src/main/AndroidManifest.xml:178:9-184:20
+	android:enabled
+		ADDED from /home/kev/Desktop/Sunshine/app/src/main/AndroidManifest.xml:180:13-35
+	android:name
+		ADDED from /home/kev/Desktop/Sunshine/app/src/main/AndroidManifest.xml:179:13-54
+intent-filter#com.example.android.sunshine.app.ACTION_DATA_UPDATED
+ADDED from /home/kev/Desktop/Sunshine/app/src/main/AndroidManifest.xml:181:13-183:29
 uses-sdk
 INJECTED from /home/kev/Desktop/Sunshine/app/src/main/AndroidManifest.xml reason: use-sdk injection requested
 MERGED from [com.google.android.gms:play-services-measurement:8.3.0] /home/kev/Desktop/Sunshine/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-measurement/8.3.0/AndroidManifest.xml:18:5-42
@@ -302,6 +321,10 @@ MERGED from [com.google.android.gms:play-services-base:8.3.0] /home/kev/Desktop/
 MERGED from [com.google.android.gms:play-services-basement:8.3.0] /home/kev/Desktop/Sunshine/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-basement/8.3.0/AndroidManifest.xml:18:5-42
 MERGED from [com.android.support:support-v4:23.3.0] /home/kev/Desktop/Sunshine/app/build/intermediates/exploded-aar/com.android.support/support-v4/23.3.0/AndroidManifest.xml:20:5-43
 MERGED from [com.google.android.gms:play-services-measurement:8.3.0] /home/kev/Desktop/Sunshine/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-measurement/8.3.0/AndroidManifest.xml:18:5-42
+MERGED from [com.google.android.gms:play-services-basement:8.3.0] /home/kev/Desktop/Sunshine/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-basement/8.3.0/AndroidManifest.xml:18:5-42
+MERGED from [com.android.support:support-v4:23.3.0] /home/kev/Desktop/Sunshine/app/build/intermediates/exploded-aar/com.android.support/support-v4/23.3.0/AndroidManifest.xml:20:5-43
+MERGED from [com.google.android.gms:play-services-wearable:8.3.0] /home/kev/Desktop/Sunshine/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-wearable/8.3.0/AndroidManifest.xml:18:5-42
+MERGED from [com.google.android.gms:play-services-base:8.3.0] /home/kev/Desktop/Sunshine/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-base/8.3.0/AndroidManifest.xml:18:5-42
 MERGED from [com.google.android.gms:play-services-basement:8.3.0] /home/kev/Desktop/Sunshine/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-basement/8.3.0/AndroidManifest.xml:18:5-42
 MERGED from [com.android.support:support-v4:23.3.0] /home/kev/Desktop/Sunshine/app/build/intermediates/exploded-aar/com.android.support/support-v4/23.3.0/AndroidManifest.xml:20:5-43
 MERGED from [com.android.support:gridlayout-v7:23.3.0] /home/kev/Desktop/Sunshine/app/build/intermediates/exploded-aar/com.android.support/gridlayout-v7/23.3.0/AndroidManifest.xml:20:5-43
@@ -361,6 +384,7 @@ MERGED from [com.google.android.gms:play-services-measurement:8.3.0] /home/kev/D
 		ADDED from [com.google.android.gms:play-services-measurement:8.3.0] /home/kev/Desktop/Sunshine/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-measurement/8.3.0/AndroidManifest.xml:42:11-82
 meta-data#com.google.android.gms.version
 ADDED from [com.google.android.gms:play-services-basement:8.3.0] /home/kev/Desktop/Sunshine/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-basement/8.3.0/AndroidManifest.xml:21:9-23:69
+MERGED from [com.google.android.gms:play-services-basement:8.3.0] /home/kev/Desktop/Sunshine/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-basement/8.3.0/AndroidManifest.xml:21:9-23:69
 MERGED from [com.google.android.gms:play-services-basement:8.3.0] /home/kev/Desktop/Sunshine/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-basement/8.3.0/AndroidManifest.xml:21:9-23:69
 MERGED from [com.google.android.gms:play-services-basement:8.3.0] /home/kev/Desktop/Sunshine/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-basement/8.3.0/AndroidManifest.xml:21:9-23:69
 	android:name

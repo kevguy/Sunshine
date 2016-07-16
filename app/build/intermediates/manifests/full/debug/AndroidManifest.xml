@@ -176,6 +176,18 @@
         <service
             android:name="com.example.android.sunshine.app.gcm.RegistrationIntentService"
             android:exported="false" />
+        <service
+            android:name="com.example.android.sunshine.app.wearable.WearableIntentService"
+            android:enabled="true"
+            android:exported="true" />
+
+        <receiver
+            android:name="com.example.android.sunshine.app.wearable.WearableProvider"
+            android:enabled="true" >
+            <intent-filter>
+                <action android:name="com.example.android.sunshine.app.ACTION_DATA_UPDATED" />
+            </intent-filter>
+        </receiver>
 
         <provider
             android:name="com.google.android.gms.measurement.AppMeasurementContentProvider"
