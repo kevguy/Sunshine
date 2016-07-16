@@ -154,6 +154,7 @@ public class SunshineWatchFace extends CanvasWatchFaceService {
         private static final String KEY_WEATHER_ID = "com.example.key.weather_id";
         private static final String KEY_TEMP_MAX = "com.example.key.max_temp";
         private static final String KEY_TEMP_MIN = "com.example.key.min_temp";
+        private static final String KEY_LOCATION = "com.example.key.location";
 
         final Handler mUpdateTimeHandler = new EngineHandler(this);
 
@@ -180,6 +181,8 @@ public class SunshineWatchFace extends CanvasWatchFaceService {
         Paint mLowTempPaint;
         Paint mTextPaint;
         Paint mTextBoldPaint;
+        Paint mLocationPaint;
+        Paint mLocationAmbientPaint;
 
         float mXOffset;
         float mYOffset;
@@ -189,6 +192,7 @@ public class SunshineWatchFace extends CanvasWatchFaceService {
         int mWeatherId = 0;
         double mMaxTemperature = 50;
         double mMinTemperature = 20;
+        String mLocation = "";
 
         // bitmaps
         Bitmap mBitmapStatus;
@@ -282,6 +286,14 @@ public class SunshineWatchFace extends CanvasWatchFaceService {
 
             // initialize bitmaps
             initializeBitmaps(resources);
+
+            // initialize location paint
+            mLocationPaint = createTextPaint(ContextCompat.getColor(getBaseContext(), R.color.text),
+                    resources.getDimension(R.dimen.text_size_location), NORMAL_TYPEFACE);
+            mLocationAmbientPaint = createTextPaint(ContextCompat.getColor(getBaseContext(), R.color.text_semitransparent),
+                    resources.getDimension(R.dimen.text_size_location), NORMAL_TYPEFACE);
+
+
 
             mTime = new Time();
         }
@@ -434,6 +446,8 @@ public class SunshineWatchFace extends CanvasWatchFaceService {
                     mHourPaint.setAntiAlias(!inAmbientMode);
                     mMinutePaint.setAntiAlias(!inAmbientMode);
                     mDateAmbientPaint.setAntiAlias(!inAmbientMode);
+                    mLocationPaint.setAntiAlias(!inAmbientMode);
+                    mLocationAmbientPaint.setAntiAlias(!inAmbientMode);
                 }
                 invalidate();
             }
@@ -564,6 +578,21 @@ public class SunshineWatchFace extends CanvasWatchFaceService {
                     lowTempPaint,
                     Paint.Align.LEFT,
                     TextVertAlign.Top);
+
+            // draw location
+            // draw location
+            String locationText = mLocation.trim().toUpperCase();
+            Paint locationPaint = mAmbient ? mLocationAmbientPaint : mLocationPaint;
+            Rect locationBounds = new Rect();
+            locationPaint.getTextBounds(locationText, 0, locationText.length(), locationBounds);
+            drawHvAlignedText(
+                    canvas,
+                    (bounds.width() - locationBounds.width()) / 2,
+                    bounds.height() / 2 + mLeading * 2 + icon.getHeight(),
+                    locationText,
+                    locationPaint,
+                    Paint.Align.LEFT,
+                    TextVertAlign.Top);
         }
 
         /**
@@ -630,6 +659,7 @@ public class SunshineWatchFace extends CanvasWatchFaceService {
                         mWeatherId = dataMap.getInt(KEY_WEATHER_ID);
                         mMaxTemperature = dataMap.getDouble(KEY_TEMP_MAX);
                         mMinTemperature = dataMap.getDouble(KEY_TEMP_MIN);
+                        mLocation = dataMap.getString(KEY_LOCATION);
 
                         invalidate();
                     }
@@ -637,6 +667,8 @@ public class SunshineWatchFace extends CanvasWatchFaceService {
                     // DataItem deleted
                 }
             }
+
+            dataEventBuffer.release();
         }
 
         @Override

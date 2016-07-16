@@ -4,30 +4,38 @@
     api-level="23"
     density="420dpi"
     format="7"
-    timestamp="95825554960066"
-    token="-8596060107168755509" >
+    timestamp="96482993828567"
+    token="-8596060107168755509"
+    verifier="FIELD_ADDED" >
 
     <task
         name="javac"
-        duration="650" />
+        duration="117" />
     <task
         name="instant-run-dex"
         duration="0" />
     <task
         name="instant-run-transform"
-        duration="374" />
+        duration="11" />
     <task
         name="verifier"
-        duration="37" />
+        duration="1" />
 
     <artifact
-        location="/home/kev/Desktop/Sunshine/app/build/outputs/apk/app-debug.apk"
-        type="MAIN" />
+        location="/home/kev/Desktop/Sunshine/app/build/intermediates/transforms/dex/debug/folders/1000/5/slice_9/classes.dex"
+        type="DEX" />
 
     <build timestamp="95825554960066" >
         <artifact
             location="/home/kev/Desktop/Sunshine/app/build/outputs/apk/app-debug.apk"
             type="MAIN" />
+    </build>
+    <build
+        timestamp="96482993828567"
+        verifier="FIELD_ADDED" >
+        <artifact
+            location="/home/kev/Desktop/Sunshine/app/build/intermediates/transforms/dex/debug/folders/1000/5/slice_9/classes.dex"
+            type="DEX" />
     </build>
 
 </instant-run>
