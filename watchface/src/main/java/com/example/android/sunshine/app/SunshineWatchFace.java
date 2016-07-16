@@ -21,6 +21,8 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.IntentFilter;
 import android.content.res.Resources;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.graphics.Canvas;
 import android.graphics.Paint;
 import android.graphics.Rect;
@@ -177,8 +179,27 @@ public class SunshineWatchFace extends CanvasWatchFaceService {
         float mCharSpace;
 
         int mWeatherId = 0;
-        double mMaxTemperature = 100;
-        double mMinTemperature = 100;
+        double mMaxTemperature = 50;
+        double mMinTemperature = 20;
+
+        // bitmaps
+        Bitmap mBitmapStatus;
+        Bitmap mBitmapClear;
+        Bitmap mBitmapClouds;
+        Bitmap mBitmapFog;
+        Bitmap mBitmapLightClouds;
+        Bitmap mBitmapLightRain;
+        Bitmap mBitmapRain;
+        Bitmap mBitmapSnow;
+        Bitmap mBitmapStorm;
+        Bitmap mBitmapClearAmbient;
+        Bitmap mBitmapCloudsAmbient;
+        Bitmap mBitmapFogAmbient;
+        Bitmap mBitmapLightCloudsAmbient;
+        Bitmap mBitmapLightRainAmbient;
+        Bitmap mBitmapRainAmbient;
+        Bitmap mBitmapSnowAmbient;
+        Bitmap mBitmapStormAmbient;
 
         boolean mAmbient;
         boolean mLowBitAmbient;
@@ -203,7 +224,7 @@ public class SunshineWatchFace extends CanvasWatchFaceService {
             super.onCreate(holder);
 
             setWatchFaceStyle(new WatchFaceStyle.Builder(SunshineWatchFace.this)
-                    .setCardPeekMode(WatchFaceStyle.PEEK_MODE_VARIABLE)
+                    .setCardPeekMode(WatchFaceStyle.PEEK_MODE_SHORT)
                     .setBackgroundVisibility(WatchFaceStyle.BACKGROUND_VISIBILITY_INTERRUPTIVE)
                     .setShowSystemUiTime(false)
                     .build());
@@ -250,6 +271,9 @@ public class SunshineWatchFace extends CanvasWatchFaceService {
 
             mLineSpace = resources.getDimension(R.dimen.line_space);
             mCharSpace = resources.getDimension(R.dimen.char_space);
+
+            // initialize bitmaps
+            initializeBitmaps(resources);
 
             mTime = new Time();
         }
@@ -438,6 +462,11 @@ public class SunshineWatchFace extends CanvasWatchFaceService {
             // Everything is centered.
 
             // draw an icon
+            Bitmap icon = getBitmapForWeatherCondition(mWeatherId);
+            canvas.drawBitmap(icon,
+                    (bounds.width() / 5 + (bounds.width() / 5 - icon.getHeight()) / 2),
+                    bounds.height() / 2 + mLeading,
+                    null);
 
             // draw a high temperature
             String highTempText = String.format(mTemperatureFormat, mMaxTemperature);
@@ -545,6 +574,57 @@ public class SunshineWatchFace extends CanvasWatchFaceService {
         @Override
         public void onConnectionFailed(ConnectionResult connectionResult) {
 
+        }
+
+        private void initializeBitmaps(Resources resources) {
+            mBitmapStatus = BitmapFactory.decodeResource(resources, R.drawable.ic_status);
+            mBitmapClear = BitmapFactory.decodeResource(resources, R.drawable.ic_clear);
+            mBitmapClouds = BitmapFactory.decodeResource(resources, R.drawable.ic_cloudy);
+            mBitmapFog = BitmapFactory.decodeResource(resources, R.drawable.ic_fog);
+            mBitmapLightClouds = BitmapFactory.decodeResource(resources, R.drawable.ic_light_clouds);
+            mBitmapLightRain = BitmapFactory.decodeResource(resources, R.drawable.ic_light_rain);
+            mBitmapRain = BitmapFactory.decodeResource(resources, R.drawable.ic_rain);
+            mBitmapSnow = BitmapFactory.decodeResource(resources, R.drawable.ic_snow);
+            mBitmapStorm = BitmapFactory.decodeResource(resources, R.drawable.ic_storm);
+            mBitmapClearAmbient = BitmapFactory.decodeResource(resources, R.drawable.ic_clear_grayscale);
+            mBitmapCloudsAmbient = BitmapFactory.decodeResource(resources, R.drawable.ic_cloudy_grayscale);
+            mBitmapFogAmbient = BitmapFactory.decodeResource(resources, R.drawable.ic_fog_grayscale);
+            mBitmapLightCloudsAmbient = BitmapFactory.decodeResource(resources, R.drawable.ic_light_clouds_grayscale);
+            mBitmapLightRainAmbient = BitmapFactory.decodeResource(resources, R.drawable.ic_light_rain_grayscale);
+            mBitmapRainAmbient = BitmapFactory.decodeResource(resources, R.drawable.ic_rain_grayscale);
+            mBitmapSnowAmbient = BitmapFactory.decodeResource(resources, R.drawable.ic_snow_grayscale);
+            mBitmapStormAmbient = BitmapFactory.decodeResource(resources, R.drawable.ic_storm_grayscale);
+        }
+
+        private Bitmap getBitmapForWeatherCondition(int weatherId) {
+            // Based on weather code data found at:
+            // http://bugs.openweathermap.org/projects/api/wiki/Weather_Condition_Codes
+            if (weatherId >= 200 && weatherId <= 232) {
+                return mAmbient ? mBitmapStormAmbient : mBitmapStorm;
+            } else if (weatherId >= 300 && weatherId <= 321) {
+                return mAmbient ? mBitmapLightRainAmbient : mBitmapLightRain;
+            } else if (weatherId >= 500 && weatherId <= 504) {
+                return mAmbient ? mBitmapRainAmbient : mBitmapRain;
+            } else if (weatherId == 511) {
+                return mAmbient ? mBitmapSnowAmbient : mBitmapSnow;
+            } else if (weatherId >= 520 && weatherId <= 531) {
+                return mAmbient ? mBitmapRainAmbient : mBitmapRain;
+            } else if (weatherId >= 600 && weatherId <= 622) {
+                return mAmbient ? mBitmapSnowAmbient : mBitmapSnow;
+            } else if (weatherId >= 701 && weatherId <= 761) {
+                return mAmbient ? mBitmapFogAmbient : mBitmapFog;
+            } else if (weatherId == 761 || weatherId == 781) {
+                return mAmbient ? mBitmapStormAmbient : mBitmapStorm;
+            } else if (weatherId == 800) {
+                return mAmbient ? mBitmapClearAmbient : mBitmapClear;
+            } else if (weatherId == 801) {
+                return mAmbient ? mBitmapLightCloudsAmbient : mBitmapLightClouds;
+            } else if (weatherId >= 802 && weatherId <= 804) {
+                return mAmbient ? mBitmapCloudsAmbient : mBitmapClouds;
+            }
+
+            // default bitmap
+            return mBitmapStatus;
         }
     }
 }
