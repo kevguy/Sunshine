@@ -12,12 +12,12 @@
         "source": "/home/kev/Desktop/Sunshine/app/src/main/res/drawable/touch_selector_activated.xml"
     },
     {
-        "merged": "/home/kev/Desktop/Sunshine/app/build/intermediates/res/merged/debug/drawable/abc_item_background_holo_light.xml",
-        "source": "/home/kev/Desktop/Sunshine/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.3.0/res/drawable/abc_item_background_holo_light.xml"
-    },
-    {
         "merged": "/home/kev/Desktop/Sunshine/app/build/intermediates/res/merged/debug/drawable/common_google_signin_btn_icon_dark.xml",
         "source": "/home/kev/Desktop/Sunshine/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-base/8.3.0/res/drawable/common_google_signin_btn_icon_dark.xml"
+    },
+    {
+        "merged": "/home/kev/Desktop/Sunshine/app/build/intermediates/res/merged/debug/drawable/abc_item_background_holo_light.xml",
+        "source": "/home/kev/Desktop/Sunshine/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.3.0/res/drawable/abc_item_background_holo_light.xml"
     },
     {
         "merged": "/home/kev/Desktop/Sunshine/app/build/intermediates/res/merged/debug/drawable/today_touch_selector.xml",
