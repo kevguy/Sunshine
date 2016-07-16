@@ -49,6 +49,25 @@ public class WearableIntentService extends IntentService implements GoogleApiCli
         super("WearableIntentService");
     }
 
+    @Override
+    public void onCreate() {
+        //Log.d(TAG, "onCreate");
+        super.onCreate();
+    }
+
+    @Override
+    public void onStart(Intent intent, int startId) {
+        //Log.d(TAG, "onStart");
+        super.onStart(intent, startId);
+    }
+
+    @Override
+    public void onDestroy() {
+        //Log.d(TAG, "onDestroy");
+        super.onDestroy();
+    }
+
+
     /**
      * This method is invoked on the worker thread with a request to process.
      * Only one Intent is processed at a time, but the processing happens on a
@@ -63,6 +82,7 @@ public class WearableIntentService extends IntentService implements GoogleApiCli
      */
     @Override
     protected void onHandleIntent(Intent intent){
+        //Log.d(TAG, "onHandleIntent");
         // Get today's data from the ContentProvider
         String location = Utility.getPreferredLocation(this);
         Uri weatherForLocationUri = WeatherContract.WeatherEntry.buildWeatherLocationWithStartDate(
@@ -85,16 +105,16 @@ public class WearableIntentService extends IntentService implements GoogleApiCli
 
         // create or connect a Google API client
         if (mGoogleApiClient == null) {
+            //Log.d(TAG, "mGoogleApiClient.build()");
             mGoogleApiClient = new GoogleApiClient.Builder(this)
                     .addApi(Wearable.API)
                     .addConnectionCallbacks(this)
                     //.addOnConnectionFailedListener(this)
                     .build();
-            Log.v(TAG, "yo");
         }
         if (!mGoogleApiClient.isConnected()) {
+            //Log.d(TAG, "mGoogleApiClient.connect()");
             mGoogleApiClient.connect();
-            Log.v(TAG, "shit");
         }
     }
 
@@ -102,6 +122,7 @@ public class WearableIntentService extends IntentService implements GoogleApiCli
     public void onConnected(Bundle bundle) {
         // create and send a request to update the weather on wearable
         PutDataMapRequest putDataMapRequest = PutDataMapRequest.create(REQ_PATH);
+        putDataMapRequest.setUrgent();
 
         putDataMapRequest.getDataMap().putInt(KEY_WEATHER_ID, mWeatherId);
         putDataMapRequest.getDataMap().putDouble(KEY_TEMP_MAX, mMaxTemp);
@@ -127,6 +148,6 @@ public class WearableIntentService extends IntentService implements GoogleApiCli
 
     @Override
     public void onConnectionSuspended(int i) {
-
+        //Log.d(TAG, "onConnectionSuspended");
     }
 }

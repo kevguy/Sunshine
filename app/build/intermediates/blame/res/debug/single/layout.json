@@ -4,12 +4,12 @@
         "source": "/home/kev/Desktop/Sunshine/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.3.0/res/layout/notification_template_lines.xml"
     },
     {
-        "merged": "/home/kev/Desktop/Sunshine/app/build/intermediates/res/merged/debug/layout/widget_today_large.xml",
-        "source": "/home/kev/Desktop/Sunshine/app/src/main/res/layout/widget_today_large.xml"
-    },
-    {
         "merged": "/home/kev/Desktop/Sunshine/app/build/intermediates/res/merged/debug/layout/design_layout_snackbar.xml",
         "source": "/home/kev/Desktop/Sunshine/app/build/intermediates/exploded-aar/com.android.support/design/23.3.0/res/layout/design_layout_snackbar.xml"
+    },
+    {
+        "merged": "/home/kev/Desktop/Sunshine/app/build/intermediates/res/merged/debug/layout/widget_today_large.xml",
+        "source": "/home/kev/Desktop/Sunshine/app/src/main/res/layout/widget_today_large.xml"
     },
     {
         "merged": "/home/kev/Desktop/Sunshine/app/build/intermediates/res/merged/debug/layout/abc_activity_chooser_view_list_item.xml",

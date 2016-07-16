@@ -39,15 +39,22 @@ import android.view.SurfaceHolder;
 
 import com.google.android.gms.common.ConnectionResult;
 import com.google.android.gms.common.api.GoogleApiClient;
+import com.google.android.gms.common.api.ResultCallback;
 import com.google.android.gms.wearable.DataApi;
 import com.google.android.gms.wearable.DataEvent;
 import com.google.android.gms.wearable.DataEventBuffer;
 import com.google.android.gms.wearable.DataItem;
 import com.google.android.gms.wearable.DataMap;
 import com.google.android.gms.wearable.DataMapItem;
+import com.google.android.gms.wearable.MessageApi;
+import com.google.android.gms.wearable.Node;
+import com.google.android.gms.wearable.NodeApi;
+import com.google.android.gms.wearable.PutDataMapRequest;
+import com.google.android.gms.wearable.PutDataRequest;
 import com.google.android.gms.wearable.Wearable;
 
 import java.lang.ref.WeakReference;
+import java.util.List;
 import java.util.TimeZone;
 import java.util.concurrent.TimeUnit;
 
@@ -143,6 +150,7 @@ public class SunshineWatchFace extends CanvasWatchFaceService {
         private static final String TAG = "WatchFace.Engine";
 
         private static final String REQ_PATH = "/weather";
+        private static final String REQ_WEATHER_PATH = "/weather-req";
         private static final String KEY_WEATHER_ID = "com.example.key.weather_id";
         private static final String KEY_TEMP_MAX = "com.example.key.max_temp";
         private static final String KEY_TEMP_MIN = "com.example.key.min_temp";
@@ -165,7 +173,7 @@ public class SunshineWatchFace extends CanvasWatchFaceService {
         Paint mDatePaint;
         Paint mDateAmbientPaint;
         Paint mDividerPaint;
-        //        Paint mDividerAmbientPaint;
+        //Paint mDividerAmbientPaint;
         Paint mBackgroundPaint;
         Paint mBackgroundAmbientPaint;
         Paint mHighTempPaint;
@@ -307,6 +315,7 @@ public class SunshineWatchFace extends CanvasWatchFaceService {
 
         @Override
         public void onVisibilityChanged(boolean visible) {
+            //Log.d(TAG, "onVisibilityChanged");
             super.onVisibilityChanged(visible);
 
             if (visible) {
@@ -329,6 +338,62 @@ public class SunshineWatchFace extends CanvasWatchFaceService {
             // Whether the timer should be running depends on whether we're visible (as well as
             // whether we're in ambient mode), so we may need to start or stop the timer.
             updateTimer();
+        }
+
+        private void requestWeatherUpdate() {
+            //Log.d(TAG, "requestWeatherUpdate through Message API");
+
+            Wearable.NodeApi.getConnectedNodes(mGoogleApiClient)
+                .setResultCallback(new ResultCallback<NodeApi.GetConnectedNodesResult>() {
+                    @Override
+                    public void onResult(NodeApi.GetConnectedNodesResult getConnectedNodesResult) {
+                        final List<Node> nodes = getConnectedNodesResult.getNodes();
+
+                        for (Node node : nodes) {
+                        Wearable.MessageApi.sendMessage(mGoogleApiClient
+                            , node.getId()
+                            , REQ_WEATHER_PATH
+                            , new byte[0]).setResultCallback(
+                            new ResultCallback<MessageApi.SendMessageResult>() {
+                                    @Override
+                                    public void onResult(MessageApi.SendMessageResult sendMessageResult) {
+                                        if (sendMessageResult.getStatus().isSuccess()) {
+                                            Log.d(TAG, "Message successfully sent");
+                                        } else {
+                                            Log.d(TAG, "Message failed to send");
+                                        }
+                                    }
+                                }
+                            );
+                        }
+                    }
+                });
+        }
+
+        private void requestWeatherUpdate_DataItem() {
+            //Log.d(TAG, "requestWeatherUpdate through DataItem API");
+
+            // create and send a request to update the weather on wearable
+            PutDataMapRequest putDataMapRequest = PutDataMapRequest.create(REQ_WEATHER_PATH);
+            putDataMapRequest.setUrgent();
+
+            // put in dummy data just to make sure the request is not discarded for whatever reason
+            // see http://stackoverflow.com/questions/25141046/wearablelistenerservice-ondatachanged-is-not-called
+            putDataMapRequest.getDataMap().putLong("time", System.currentTimeMillis());
+
+            PutDataRequest request = putDataMapRequest.asPutDataRequest();
+            Wearable.DataApi.putDataItem(mGoogleApiClient, request)
+                    .setResultCallback(new ResultCallback<DataApi.DataItemResult>() {
+                                           @Override
+                                           public void onResult(DataApi.DataItemResult dataItemResult) {
+                                               if (dataItemResult.getStatus().isSuccess()) {
+                                                   Log.d(TAG, "Successfully sent");
+                                               } else {
+                                                   Log.d(TAG, "Failed to send");
+                                               }
+                                           }
+                                       }
+                    );
         }
 
         private void registerReceiver() {
@@ -543,6 +608,8 @@ public class SunshineWatchFace extends CanvasWatchFaceService {
         public void onConnected(Bundle bundle) {
             Log.d(TAG, "onConnected");
             Wearable.DataApi.addListener(mGoogleApiClient, this);
+
+            requestWeatherUpdate();
         }
 
         @Override
@@ -556,7 +623,8 @@ public class SunshineWatchFace extends CanvasWatchFaceService {
                 if (event.getType() == DataEvent.TYPE_CHANGED) {
                     // DataItem changed
                     DataItem item = event.getDataItem();
-                    if (item.getUri().getPath().compareTo(REQ_PATH) == 0) {
+                    String path = item.getUri().getPath();
+                    if (path.equals((REQ_PATH))) {
                         DataMap dataMap = DataMapItem.fromDataItem(item).getDataMap();
 
                         mWeatherId = dataMap.getInt(KEY_WEATHER_ID);

@@ -10,15 +10,43 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="70b6e429-a875-42f4-97df-c8a9018ee714" name="Default" comment="">
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/build/intermediates/classes/androidTest/debug/com/example/android/sunshine/app/FullTestSuite.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/build/intermediates/classes/androidTest/debug/com/example/android/sunshine/app/TestFetchWeatherTask.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/build/intermediates/classes/androidTest/debug/com/example/android/sunshine/app/data/TestDb.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/build/intermediates/classes/androidTest/debug/com/example/android/sunshine/app/data/TestProvider.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/build/intermediates/classes/androidTest/debug/com/example/android/sunshine/app/data/TestUriMatcher.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/build/intermediates/classes/androidTest/debug/com/example/android/sunshine/app/data/TestUtilities$TestContentObserver$1.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/build/intermediates/classes/androidTest/debug/com/example/android/sunshine/app/data/TestUtilities$TestContentObserver.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/build/intermediates/classes/androidTest/debug/com/example/android/sunshine/app/data/TestUtilities.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/build/intermediates/classes/androidTest/debug/com/example/android/sunshine/app/data/TestWeatherContract.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/build/intermediates/classes/androidTest/debug/com/example/android/sunshine/app/test/BuildConfig.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/build/intermediates/classes/androidTest/debug/com/example/android/sunshine/app/utils/PollingCheck.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/build/intermediates/incremental-safeguard/androidTest/debug/tag.txt" afterPath="" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gradle/2.10/taskArtifacts/cache.properties.lock" afterPath="$PROJECT_DIR$/.gradle/2.10/taskArtifacts/cache.properties.lock" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gradle/2.10/taskArtifacts/fileHashes.bin" afterPath="$PROJECT_DIR$/.gradle/2.10/taskArtifacts/fileHashes.bin" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gradle/2.10/taskArtifacts/fileSnapshots.bin" afterPath="$PROJECT_DIR$/.gradle/2.10/taskArtifacts/fileSnapshots.bin" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gradle/2.10/taskArtifacts/outputFileStates.bin" afterPath="$PROJECT_DIR$/.gradle/2.10/taskArtifacts/outputFileStates.bin" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gradle/2.10/taskArtifacts/taskArtifacts.bin" afterPath="$PROJECT_DIR$/.gradle/2.10/taskArtifacts/taskArtifacts.bin" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gradle/2.10/tasks/_app_compileDebugJavaWithJavac/localClassSetAnalysis/localClassSetAnalysis.bin" afterPath="$PROJECT_DIR$/.gradle/2.10/tasks/_app_compileDebugJavaWithJavac/localClassSetAnalysis/localClassSetAnalysis.bin" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gradle/2.10/tasks/_app_compileDebugJavaWithJavac/localClassSetAnalysis/localClassSetAnalysis.lock" afterPath="$PROJECT_DIR$/.gradle/2.10/tasks/_app_compileDebugJavaWithJavac/localClassSetAnalysis/localClassSetAnalysis.lock" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gradle/2.10/tasks/_app_compileDebugJavaWithJavac/localJarClasspathSnapshot/localJarClasspathSnapshot.lock" afterPath="$PROJECT_DIR$/.gradle/2.10/tasks/_app_compileDebugJavaWithJavac/localJarClasspathSnapshot/localJarClasspathSnapshot.lock" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gradle/2.10/tasks/_watchface_compileDebugJavaWithJavac/localClassSetAnalysis/localClassSetAnalysis.bin" afterPath="$PROJECT_DIR$/.gradle/2.10/tasks/_watchface_compileDebugJavaWithJavac/localClassSetAnalysis/localClassSetAnalysis.bin" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gradle/2.10/tasks/_watchface_compileDebugJavaWithJavac/localClassSetAnalysis/localClassSetAnalysis.lock" afterPath="$PROJECT_DIR$/.gradle/2.10/tasks/_watchface_compileDebugJavaWithJavac/localClassSetAnalysis/localClassSetAnalysis.lock" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gradle/2.10/tasks/_watchface_compileDebugJavaWithJavac/localJarClasspathSnapshot/localJarClasspathSnapshot.lock" afterPath="$PROJECT_DIR$/.gradle/2.10/tasks/_watchface_compileDebugJavaWithJavac/localJarClasspathSnapshot/localJarClasspathSnapshot.lock" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/classes/debug/com/example/android/sunshine/app/wearable/WearableIntentService$1.class" afterPath="$PROJECT_DIR$/app/build/intermediates/classes/debug/com/example/android/sunshine/app/wearable/WearableIntentService$1.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/classes/debug/com/example/android/sunshine/app/wearable/WearableIntentService.class" afterPath="$PROJECT_DIR$/app/build/intermediates/classes/debug/com/example/android/sunshine/app/wearable/WearableIntentService.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/res/resources-debug-androidTest.ap_" afterPath="$PROJECT_DIR$/app/build/intermediates/res/resources-debug-androidTest.ap_" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/res/resources-debug.ap_" afterPath="$PROJECT_DIR$/app/build/intermediates/res/resources-debug.ap_" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/app.iml" afterPath="$PROJECT_DIR$/app/app.iml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/blame/res/debug/single/drawable-tvdpi-v4.json" afterPath="$PROJECT_DIR$/app/build/intermediates/blame/res/debug/single/drawable-tvdpi-v4.json" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/blame/res/debug/single/drawable.json" afterPath="$PROJECT_DIR$/app/build/intermediates/blame/res/debug/single/drawable.json" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/blame/res/debug/single/layout.json" afterPath="$PROJECT_DIR$/app/build/intermediates/blame/res/debug/single/layout.json" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/manifests/full/debug/AndroidManifest.xml" afterPath="$PROJECT_DIR$/app/build/intermediates/manifests/full/debug/AndroidManifest.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/outputs/logs/manifest-merger-debug-report.txt" afterPath="$PROJECT_DIR$/app/build/outputs/logs/manifest-merger-debug-report.txt" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/AndroidManifest.xml" afterPath="$PROJECT_DIR$/app/src/main/AndroidManifest.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/example/android/sunshine/app/wearable/WearableIntentService.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/android/sunshine/app/wearable/WearableIntentService.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/intermediates/dex-cache/cache.xml" afterPath="$PROJECT_DIR$/build/intermediates/dex-cache/cache.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/watchface/src/main/java/com/example/android/sunshine/app/SunshineWatchFace.java" afterPath="$PROJECT_DIR$/watchface/src/main/java/com/example/android/sunshine/app/SunshineWatchFace.java" />
     </list>
     <ignored path="Sunshine.iws" />
@@ -74,33 +102,49 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="SunshineWatchFace.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="SunshineWatchFace.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/watchface/src/main/java/com/example/android/sunshine/app/SunshineWatchFace.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.8542601">
-              <caret line="182" column="34" selection-start-line="182" selection-start-column="34" selection-end-line="182" selection-end-column="34" />
+            <state vertical-scroll-proportion="-14.096774">
+              <caret line="644" column="9" selection-start-line="644" selection-start-column="9" selection-end-line="644" selection-end-column="9" />
               <folding>
-                <element signature="e#0#26726#0" expanded="true" />
+                <element signature="e#0#30287#0" expanded="true" />
                 <element signature="imports" expanded="true" />
-                <element signature="e#7423#7691#0" expanded="true" />
-                <element signature="e#7690#7691#0" expanded="true" />
-                <element signature="e#8506#8552#0" expanded="true" />
-                <element signature="e#8709#8755#0" expanded="true" />
-                <element signature="e#8846#8890#0" expanded="true" />
-                <element signature="e#9028#9074#0" expanded="true" />
-                <element signature="e#9214#9260#0" expanded="true" />
-                <element signature="e#9987#10040#0" expanded="true" />
-                <element signature="e#10176#10229#0" expanded="true" />
-                <element signature="e#10324#10372#0" expanded="true" />
-                <element signature="e#10400#10451#0" expanded="true" />
-                <element signature="e#10479#10521#0" expanded="true" />
-                <element signature="e#10551#10595#0" expanded="true" />
-                <element signature="e#10870#10918#0" expanded="true" />
-                <element signature="e#10946#10988#0" expanded="true" />
-                <element signature="e#11015#11057#0" expanded="true" />
-                <element signature="e#21158#21159#0" expanded="true" />
-                <element signature="e#21222#21223#0" expanded="true" />
+                <element signature="e#7823#8091#0" expanded="true" />
+                <element signature="e#8090#8091#0" expanded="true" />
+                <element signature="e#8906#8952#0" expanded="true" />
+                <element signature="e#9109#9155#0" expanded="true" />
+                <element signature="e#9246#9290#0" expanded="true" />
+                <element signature="e#9428#9474#0" expanded="true" />
+                <element signature="e#9614#9660#0" expanded="true" />
+                <element signature="e#10387#10440#0" expanded="true" />
+                <element signature="e#10576#10629#0" expanded="true" />
+                <element signature="e#10724#10772#0" expanded="true" />
+                <element signature="e#10800#10851#0" expanded="true" />
+                <element signature="e#10879#10921#0" expanded="true" />
+                <element signature="e#10951#10995#0" expanded="true" />
+                <element signature="e#11270#11318#0" expanded="true" />
+                <element signature="e#11346#11388#0" expanded="true" />
+                <element signature="e#11415#11457#0" expanded="true" />
+                <element signature="e#13538#14834#0" expanded="true" />
+                <element signature="e#14113#14737#0" expanded="true" />
+                <element signature="e#14736#14737#0" expanded="true" />
+                <element signature="e#14833#14834#0" expanded="true" />
+                <element signature="e#15674#16327#0" expanded="true" />
+                <element signature="e#16326#16327#0" expanded="true" />
+                <element signature="e#24648#24649#0" expanded="true" />
+                <element signature="e#24712#24713#0" expanded="true" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="MyWearableListenerService.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/android/sunshine/app/wearable/MyWearableListenerService.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0">
+              <caret line="35" column="42" selection-start-line="35" selection-start-column="42" selection-end-line="35" selection-end-column="42" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -135,12 +179,14 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="AndroidManifest.xml" pinned="false" current-in-tab="false">
+      <file leaf-file-name="AndroidManifest.xml" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/src/main/AndroidManifest.xml">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-4.0">
-              <caret line="174" column="34" selection-start-line="174" selection-start-column="34" selection-end-line="174" selection-end-column="34" />
-              <folding />
+            <state vertical-scroll-proportion="0.46444446">
+              <caret line="183" column="19" selection-start-line="183" selection-start-column="19" selection-end-line="183" selection-end-column="19" />
+              <folding>
+                <element signature="e#7804#7843#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -168,29 +214,17 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="WearableProvider.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/android/sunshine/app/wearable/WearableProvider.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="35" column="11" selection-start-line="35" selection-start-column="11" selection-end-line="35" selection-end-column="11" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file leaf-file-name="WearableIntentService.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/android/sunshine/app/wearable/WearableIntentService.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-0.0">
-              <caret line="0" column="40" selection-start-line="0" selection-start-column="8" selection-end-line="0" selection-end-column="40" />
+            <state vertical-scroll-proportion="-5.491803">
+              <caret line="150" column="10" selection-start-line="150" selection-start-column="10" selection-end-line="150" selection-end-column="10" />
               <folding>
                 <element signature="imports" expanded="true" />
                 <element signature="e#1814#1815#0" expanded="true" />
                 <element signature="e#1860#1861#0" expanded="true" />
-                <element signature="e#4519#5103#0" expanded="true" />
-                <element signature="e#5102#5103#0" expanded="true" />
+                <element signature="e#5018#5602#0" expanded="true" />
+                <element signature="e#5601#5602#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -2756,13 +2790,15 @@
         <option value="$PROJECT_DIR$/watchface/src/main/res/values/dimens.xml" />
         <option value="$PROJECT_DIR$/watchface/src/main/res/values/strings.xml" />
         <option value="$PROJECT_DIR$/app/build.gradle" />
-        <option value="$PROJECT_DIR$/app/src/main/AndroidManifest.xml" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/example/android/sunshine/app/wearable/WearableProvider.java" />
-        <option value="$PROJECT_DIR$/app/src/main/java/com/example/android/sunshine/app/wearable/WearableIntentService.java" />
         <option value="$PROJECT_DIR$/watchface/src/main/AndroidManifest.xml" />
         <option value="$PROJECT_DIR$/watchface/src/main/java/com/stuff/kev/watchface/SunshineWatchFace.java" />
         <option value="$PROJECT_DIR$/watchface/build.gradle" />
+        <option value="$PROJECT_DIR$/app/src/main/java/com/example/android/sunshine/app/wearable/WearableListenerService.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/com/example/android/sunshine/app/wearable/WearableIntentService.java" />
         <option value="$PROJECT_DIR$/watchface/src/main/java/com/example/android/sunshine/app/SunshineWatchFace.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/com/example/android/sunshine/app/wearable/MyWearableListenerService.java" />
+        <option value="$PROJECT_DIR$/app/src/main/AndroidManifest.xml" />
       </list>
     </option>
   </component>
@@ -2835,12 +2871,12 @@
               <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidModuleNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="res" />
-              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidResFolderNode" />
+              <option name="myItemId" value="java" />
+              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidSourceTypeNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="drawable" />
-              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidResFolderTypeNode" />
+              <option name="myItemId" value="app" />
+              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidPsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
           <PATH>
@@ -2861,6 +2897,74 @@
             <PATH_ELEMENT>
               <option name="myItemId" value="app" />
               <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidModuleNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Sunshine" />
+              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="app" />
+              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidModuleNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="java" />
+              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidSourceTypeNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Sunshine" />
+              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="app" />
+              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidModuleNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="java" />
+              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidSourceTypeNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="app" />
+              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidPsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Sunshine" />
+              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="app" />
+              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidModuleNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="java" />
+              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidSourceTypeNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="app" />
+              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidPsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="wearable" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Sunshine" />
+              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="app" />
+              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidModuleNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="manifests" />
+              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidManifestsGroupNode" />
             </PATH_ELEMENT>
           </PATH>
         </subPane>
@@ -3313,7 +3417,7 @@
         <state vertical-scroll-proportion="0.0">
           <caret line="35" column="11" selection-start-line="35" selection-start-column="11" selection-end-line="35" selection-end-column="11" />
           <folding>
-            <element signature="imports" expanded="true" />
+            <element signature="imports" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -3337,20 +3441,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/android/sunshine/app/wearable/WearableIntentService.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-0.0">
-          <caret line="0" column="40" selection-start-line="0" selection-start-column="8" selection-end-line="0" selection-end-column="40" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#1814#1815#0" expanded="true" />
-            <element signature="e#1860#1861#0" expanded="true" />
-            <element signature="e#4519#5103#0" expanded="true" />
-            <element signature="e#5102#5103#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/watchface/src/main/AndroidManifest.xml">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-3.3333333">
@@ -3358,14 +3448,6 @@
           <folding>
             <element signature="e#752#776#0" expanded="true" />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/AndroidManifest.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-4.0">
-          <caret line="174" column="34" selection-start-line="174" selection-start-column="34" selection-end-line="174" selection-end-column="34" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -3395,29 +3477,67 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/watchface/src/main/java/com/example/android/sunshine/app/SunshineWatchFace.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.8542601">
-          <caret line="182" column="34" selection-start-line="182" selection-start-column="34" selection-end-line="182" selection-end-column="34" />
+        <state vertical-scroll-proportion="-14.096774">
+          <caret line="644" column="9" selection-start-line="644" selection-start-column="9" selection-end-line="644" selection-end-column="9" />
           <folding>
-            <element signature="e#0#26726#0" expanded="true" />
+            <element signature="e#0#30287#0" expanded="true" />
             <element signature="imports" expanded="true" />
-            <element signature="e#7423#7691#0" expanded="true" />
-            <element signature="e#7690#7691#0" expanded="true" />
-            <element signature="e#8506#8552#0" expanded="true" />
-            <element signature="e#8709#8755#0" expanded="true" />
-            <element signature="e#8846#8890#0" expanded="true" />
-            <element signature="e#9028#9074#0" expanded="true" />
-            <element signature="e#9214#9260#0" expanded="true" />
-            <element signature="e#9987#10040#0" expanded="true" />
-            <element signature="e#10176#10229#0" expanded="true" />
-            <element signature="e#10324#10372#0" expanded="true" />
-            <element signature="e#10400#10451#0" expanded="true" />
-            <element signature="e#10479#10521#0" expanded="true" />
-            <element signature="e#10551#10595#0" expanded="true" />
-            <element signature="e#10870#10918#0" expanded="true" />
-            <element signature="e#10946#10988#0" expanded="true" />
-            <element signature="e#11015#11057#0" expanded="true" />
-            <element signature="e#21158#21159#0" expanded="true" />
-            <element signature="e#21222#21223#0" expanded="true" />
+            <element signature="e#7823#8091#0" expanded="true" />
+            <element signature="e#8090#8091#0" expanded="true" />
+            <element signature="e#8906#8952#0" expanded="true" />
+            <element signature="e#9109#9155#0" expanded="true" />
+            <element signature="e#9246#9290#0" expanded="true" />
+            <element signature="e#9428#9474#0" expanded="true" />
+            <element signature="e#9614#9660#0" expanded="true" />
+            <element signature="e#10387#10440#0" expanded="true" />
+            <element signature="e#10576#10629#0" expanded="true" />
+            <element signature="e#10724#10772#0" expanded="true" />
+            <element signature="e#10800#10851#0" expanded="true" />
+            <element signature="e#10879#10921#0" expanded="true" />
+            <element signature="e#10951#10995#0" expanded="true" />
+            <element signature="e#11270#11318#0" expanded="true" />
+            <element signature="e#11346#11388#0" expanded="true" />
+            <element signature="e#11415#11457#0" expanded="true" />
+            <element signature="e#13538#14834#0" expanded="true" />
+            <element signature="e#14113#14737#0" expanded="true" />
+            <element signature="e#14736#14737#0" expanded="true" />
+            <element signature="e#14833#14834#0" expanded="true" />
+            <element signature="e#15674#16327#0" expanded="true" />
+            <element signature="e#16326#16327#0" expanded="true" />
+            <element signature="e#24648#24649#0" expanded="true" />
+            <element signature="e#24712#24713#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/android/sunshine/app/wearable/WearableIntentService.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-5.491803">
+          <caret line="150" column="10" selection-start-line="150" selection-start-column="10" selection-end-line="150" selection-end-column="10" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#1814#1815#0" expanded="true" />
+            <element signature="e#1860#1861#0" expanded="true" />
+            <element signature="e#5018#5602#0" expanded="true" />
+            <element signature="e#5601#5602#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/android/sunshine/app/wearable/MyWearableListenerService.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="35" column="42" selection-start-line="35" selection-start-column="42" selection-end-line="35" selection-end-column="42" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/AndroidManifest.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.46444446">
+          <caret line="183" column="19" selection-start-line="183" selection-start-column="19" selection-end-line="183" selection-end-column="19" />
+          <folding>
+            <element signature="e#7804#7843#0" expanded="true" />
           </folding>
         </state>
       </provider>
