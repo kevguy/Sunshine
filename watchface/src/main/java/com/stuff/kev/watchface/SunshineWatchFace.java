@@ -83,8 +83,42 @@ public class SunshineWatchFace extends CanvasWatchFaceService {
         }
     }
 
+    // see http://www.slideshare.net/rtc1/intro-todrawingtextandroid for the explanation of this awesome code snippet
+    public enum TextVertAlign { Top, Middle, Baseline, Bottom } // Enumeration representing vertical alignment positions
+    public static void drawHvAlignedText(Canvas canvas, float x, float y, String s, Paint p, Paint.Align horizAlign, TextVertAlign vertAlign ) {
+        // Set horizontal alignment
+        p.setTextAlign(horizAlign);
+
+        // Get bounding rectangle which we’ll need below...
+        Rect r = new Rect();
+        p.getTextBounds(s, 0, s.length(), r);
+
+        // Note: r.top will be negative
+        // Compute y-coordinate we'll need for drawing text for specified vertical alignment
+        float textX = x;
+        float textY = y;
+        switch (vertAlign) {
+            case Top:
+                textY = y - r.top; // Recall that r.top is negative
+                break;
+            case Middle:
+                textY = y - r.top - r.height() / 2;
+                break;
+            case Baseline: // Default behavior - no changes to y-coordinate
+                // break;
+            case Bottom:
+                textY = y - (r.height() + r.top);
+                break;
+        }
+
+        canvas.drawText(s, textX, textY, p);
+        // Now we can draw the text with the proper ( x, y ) coordinates
+    }
+
     private class Engine extends CanvasWatchFaceService.Engine {
         final Handler mUpdateTimeHandler = new EngineHandler(this);
+
+        final float mLeading = (float)1.8;
 
         boolean mRegisteredTimeZoneReceiver = false;
 
@@ -96,18 +130,28 @@ public class SunshineWatchFace extends CanvasWatchFaceService {
         Paint mBackgroundAmbientPaint;
         Paint mTextPaint;
         Paint mTextBoldPaint;
+        Paint mHighTemperaturePaint;
+        Paint mLowTemperaturePaint;
 
         Paint mHourPaint;
         Paint mMinutePaint;
         String mTimeSeparator;
+        String mTemperatureFormat;
+        String mDateFormat;
+        String mHourFormat;
+        String mMinuteFormat;
 
-        float mXOffset;
+        //float mXOffset;
         float mYOffset;
         float mLineHeight;
         float mLineSpace;
         float mCharSpace;
 
-        Paint mHandPaint;
+        // dummy data
+        float mHighTemperature = 31;
+        float mLowTemperature = 20;
+
+        //Paint mHandPaint;
 
         boolean mAmbient;
 
@@ -133,7 +177,7 @@ public class SunshineWatchFace extends CanvasWatchFaceService {
             super.onCreate(holder);
 
             setWatchFaceStyle(new WatchFaceStyle.Builder(SunshineWatchFace.this)
-                    .setCardPeekMode(WatchFaceStyle.PEEK_MODE_SHORT)
+                    .setCardPeekMode(WatchFaceStyle.PEEK_MODE_VARIABLE)
                     .setBackgroundVisibility(WatchFaceStyle.BACKGROUND_VISIBILITY_INTERRUPTIVE)
                     .setShowSystemUiTime(false)
                     .setAcceptsTapEvents(true)
@@ -166,7 +210,7 @@ public class SunshineWatchFace extends CanvasWatchFaceService {
             mTextBoldPaint = createTextPaint(ContextCompat.getColor(getBaseContext(), R.color.digital_text), BOLD_TYPEFACE);
 
             mYOffset = resources.getDimension(R.dimen.digital_y_offset);
-            mLineHeight = resources.getDimension(R.dimen.line_height);
+            //mLineHeight = resources.getDimension(R.dimen.line_height);
             mLineSpace = resources.getDimension(R.dimen.line_space);
             mCharSpace = resources.getDimension(R.dimen.char_space);
 
@@ -184,6 +228,20 @@ public class SunshineWatchFace extends CanvasWatchFaceService {
 
             // initialize time separator
             mTimeSeparator = resources.getString(R.string.time_separator);
+
+            // initialize high, low temperature paint
+            mHighTemperaturePaint = createTextPaint(ContextCompat.getColor(getBaseContext(), R.color.text),
+                    resources.getDimension(R.dimen.text_size_temperature), NORMAL_TYPEFACE);
+            mLowTemperaturePaint = createTextPaint(ContextCompat.getColor(getBaseContext(), R.color.text_semitransparent),
+                    resources.getDimension(R.dimen.text_size_temperature), NORMAL_TYPEFACE);
+
+            // initialize format strings
+            mTemperatureFormat = resources.getString(R.string.format_temperature);
+
+            mDateFormat = resources.getString(R.string.format_watchface_date);
+            mHourFormat = resources.getString(R.string.format_hours);
+            mMinuteFormat = resources.getString(R.string.format_minutes);
+
 
 
             mTime = new Time();
@@ -280,16 +338,18 @@ public class SunshineWatchFace extends CanvasWatchFaceService {
             canvas.drawRect(0, 0, canvas.getWidth(), canvas.getHeight(), backgroundPaint);
 
             // draw date
-            String dateText = mTime.format("%a, %b %d %Y").toUpperCase();
+            String dateText = mTime.format(mDateFormat).toUpperCase();
             Paint datePaint = mAmbient ? mDateAmbientPaint : mDatePaint;
             Rect dateBounds = new Rect();
 
             datePaint.getTextBounds(dateText, 0, dateText.length(), dateBounds);
-            canvas.drawText(
-                    dateText,
+            drawHvAlignedText(canvas,
                     (bounds.width() - dateBounds.width()) / 2,
-                    bounds.height() / 2 - 1 - mLineSpace - dateBounds.height(),
-                    datePaint);
+                    bounds.height() / 2 - mLeading * dateBounds.height(),
+                    dateText,
+                    datePaint,
+                    Paint.Align.LEFT,
+                    TextVertAlign.Top);
 
             // initialize separator
             Paint separatorPaint = mMinutePaint;
@@ -297,39 +357,82 @@ public class SunshineWatchFace extends CanvasWatchFaceService {
             separatorPaint.getTextBounds(mTimeSeparator, 0, mTimeSeparator.length(), separatorBounds);
 
             // draw minutes
-            String minuteText = mTime.format("%M");
+            String minuteText = mTime.format(mMinuteFormat);
             Paint minutePaint = mMinutePaint;
             Rect minuteBounds = new Rect();
             minutePaint.getTextBounds(minuteText, 0, minuteText.length(), minuteBounds);
-            canvas.drawText(
+            drawHvAlignedText(canvas,
+                    (bounds.width() + separatorBounds.width()) / 2 ,
+                    bounds.height() / 2 - dateBounds.height() - mLeading * minuteBounds.height(),
                     minuteText,
-                    (bounds.width() + separatorBounds.width()) / 2,
-                    bounds.height() / 2 - 1 - mLineSpace - dateBounds.height() - minuteBounds.height(),
-                    minutePaint);
+                    minutePaint,
+                    Paint.Align.LEFT,
+                    TextVertAlign.Top);
 
             // draw hour string
-            String hourText = mTime.format("%H");
+            String hourText = mTime.format(mHourFormat);
             Paint hourPaint = mHourPaint;
             Rect hourBounds = new Rect();
             hourPaint.getTextBounds(hourText, 0, hourText.length(), hourBounds);
-            canvas.drawText(
-                    hourText,
+            drawHvAlignedText(canvas,
                     (bounds.width() - separatorBounds.width()) / 2 - hourBounds.width(),
-                    bounds.height() / 2 - 1 - mLineSpace - dateBounds.height() - minuteBounds.height(),
-                    hourPaint);
+                    bounds.height() / 2 - dateBounds.height() - mLeading * minuteBounds.height(),
+                    hourText,
+                    hourPaint,
+                    Paint.Align.LEFT,
+                    TextVertAlign.Top);
 
-            // draw separator
+            // draw time separator
             boolean drawSeaprator = mAmbient || (mTime.second % 2) == 0;
             if (drawSeaprator) {
-                canvas.drawText(
-                        mTimeSeparator.replace('|', ' '),
+                drawHvAlignedText(canvas,
                         (bounds.width() - separatorBounds.width()) / 2,
-                        bounds.height() / 2 - 1 - mLineSpace - dateBounds.height() - separatorBounds.height(),
-                        separatorPaint);
+                        bounds.height() / 2 - dateBounds.height() - mLeading * minuteBounds.height() + minuteBounds.height() / 2,
+                        // for some reason I cannot keep leading and trailing spaces added to the separator string in the strings.xml file;
+                        // so I'm adding a magic character to replace it with a space character right before displaying the separator
+                        mTimeSeparator.replace('|', ' '),
+                        separatorPaint,
+                        Paint.Align.LEFT,
+                        TextVertAlign.Middle);
             }
 
             // draw a horizontal divider
-            canvas.drawRect((bounds.width() * 3) / 8, bounds.height() / 2 - 1, (bounds.width() * 5) / 8, bounds.height() / 2 + 1, mDividerPaint);
+            canvas.drawRect((bounds.width() * 3) / 8,
+                    bounds.height() / 2 - 1,
+                    (bounds.width() * 5) / 8,
+                    bounds.height() / 2 + 1,
+                    mDividerPaint);
+
+            // draw high temperature
+            String highTemperatureText =String.format(mTemperatureFormat, mHighTemperature);
+            Paint highTemperaturePaint = mHighTemperaturePaint;
+            Rect highTemperatureBounds = new Rect();
+            highTemperaturePaint.getTextBounds(highTemperatureText, 0,
+                    highTemperatureText.length(),
+                    highTemperatureBounds);
+            drawHvAlignedText(canvas,
+                    (bounds.width() * 2 / 5 + (bounds.width() / 5 - highTemperatureBounds.width()) / 2),
+                    bounds.height() / 2 + mLeading * dateBounds.height() - dateBounds.height(),
+                    highTemperatureText,
+                    highTemperaturePaint,
+                    Paint.Align.LEFT,
+                    TextVertAlign.Top);
+
+            // draw low temperature
+            String lowTemperatureText =String.format(mTemperatureFormat, mLowTemperature);
+            Paint lowTemperaturePaint = mLowTemperaturePaint;
+            Rect lowTemperatureBounds = new Rect();
+            lowTemperaturePaint.getTextBounds(lowTemperatureText, 0,
+                    lowTemperatureText.length(),
+                    lowTemperatureBounds);
+            drawHvAlignedText(canvas,
+                    (bounds.width() * 3 / 5 + (bounds.width() / 5 - lowTemperatureBounds.width()) / 2),
+                    bounds.height() / 2 + mLeading * dateBounds.height() - dateBounds.height(),
+                    lowTemperatureText,
+                    lowTemperaturePaint,
+                    Paint.Align.LEFT,
+                    TextVertAlign.Top);
+
         }
 
         @Override

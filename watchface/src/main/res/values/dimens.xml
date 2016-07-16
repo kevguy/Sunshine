@@ -13,12 +13,12 @@
     <!--<dimen name="x_offset_minutes">171dp</dimen>-->
     <!--<dimen name="y_offset_minutes">66dp</dimen>-->
 
-    <dimen name="line_height">1dp</dimen>
+    <!-- <dimen name="line_height">1dp</dimen> -->
     <dimen name="line_space">1dp</dimen>
     <dimen name="char_space">1dp</dimen>
 
-    <dimen name="text_size_date">15dp</dimen>
-    <dimen name="text_size_date_round">25dp</dimen>
-
     <dimen name="text_size_time">45dp</dimen>
+    <dimen name="text_size_date">15dp</dimen>
+    <dimen name="text_size_temperature">30dp</dimen>
+    <dimen name="text_size_date_round">25dp</dimen>
 </resources>

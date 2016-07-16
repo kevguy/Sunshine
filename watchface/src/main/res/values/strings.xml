@@ -1,6 +1,10 @@
-<resources>
+<resources xmlns:xliff="http://schemas.android.com/apk/res-auto">
     <string name="app_name">watchface</string>
     <string name="my_analog_name">Sunshine</string>
 
     <string name="time_separator" translatable="false">|:|</string>
+    <string name="format_watchface_date" translatable="false" formatted="false">%a, %b %d %Y</string>
+    <string name="format_temperature" translatable="false"><xliff:g id="temp">%1.0f</xliff:g>\u00B0</string>
+    <string name="format_hours" translatable="false" formatted="false">%H</string>
+    <string name="format_minutes" translatable="false" formatted="false">%M</string>
 </resources>
