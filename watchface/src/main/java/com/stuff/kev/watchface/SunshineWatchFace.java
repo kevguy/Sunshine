@@ -25,13 +25,16 @@ import android.graphics.Canvas;
 import android.graphics.Color;
 import android.graphics.Paint;
 import android.graphics.Rect;
+import android.graphics.Typeface;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
+import android.support.v4.content.ContextCompat;
 import android.support.wearable.watchface.CanvasWatchFaceService;
 import android.support.wearable.watchface.WatchFaceStyle;
 import android.text.format.Time;
 import android.view.SurfaceHolder;
+import android.view.WindowInsets;
 
 import java.lang.ref.WeakReference;
 import java.util.TimeZone;
@@ -42,6 +45,10 @@ import java.util.concurrent.TimeUnit;
  * devices with low-bit ambient mode, the hands are drawn without anti-aliasing in ambient mode.
  */
 public class SunshineWatchFace extends CanvasWatchFaceService {
+    private Typeface BASE_TYPEFACE = Typeface.SANS_SERIF;
+    private Typeface NORMAL_TYPEFACE = Typeface.create(BASE_TYPEFACE, Typeface.NORMAL);
+    private Typeface BOLD_TYPEFACE = Typeface.create(BASE_TYPEFACE, Typeface.BOLD);
+
     /**
      * Update rate in milliseconds for interactive mode. We update once a second to advance the
      * second hand.
@@ -80,11 +87,28 @@ public class SunshineWatchFace extends CanvasWatchFaceService {
 
     private class Engine extends CanvasWatchFaceService.Engine {
         final Handler mUpdateTimeHandler = new EngineHandler(this);
+
         boolean mRegisteredTimeZoneReceiver = false;
+
+        Paint mDatePaint;
+        Paint mDateAmbientPaint;
+        Paint mDividerPaint;
+        Paint mDividerAmbientPaint;
         Paint mBackgroundPaint;
+        Paint mBackgroundAmbientPaint;
+        Paint mTextPaint;
+        Paint mTextBoldPaint;
+
+        float mXOffset;
+        float mYOffset;
+        float mLineHeight;
+
         Paint mHandPaint;
+
         boolean mAmbient;
+
         Time mTime;
+
         final BroadcastReceiver mTimeZoneReceiver = new BroadcastReceiver() {
             @Override
             public void onReceive(Context context, Intent intent) {
@@ -113,17 +137,64 @@ public class SunshineWatchFace extends CanvasWatchFaceService {
 
             Resources resources = SunshineWatchFace.this.getResources();
 
-            mBackgroundPaint = new Paint();
-            mBackgroundPaint.setColor(resources.getColor(R.color.background));
+            // initialize date points
+            mDatePaint = createTextPaint(ContextCompat.getColor(getBaseContext(), R.color.date),
+                    resources.getDimension(R.dimen.text_size_date), NORMAL_TYPEFACE);
+            mDateAmbientPaint = createTextPaint(ContextCompat.getColor(getBaseContext(),
+                    R.color.date_ambient), resources.getDimension(R.dimen.text_size_date),
+                    NORMAL_TYPEFACE);
 
-            mHandPaint = new Paint();
-            mHandPaint.setColor(resources.getColor(R.color.analog_hands));
-            mHandPaint.setStrokeWidth(resources.getDimension(R.dimen.analog_hand_stroke));
-            mHandPaint.setAntiAlias(true);
-            mHandPaint.setStrokeCap(Paint.Cap.ROUND);
+            // initialize divider paints
+            mDividerPaint = new Paint();
+            mDividerPaint.setColor(ContextCompat.getColor(getBaseContext(), R.color.divider));
+
+            mDividerAmbientPaint = new Paint();
+            mDividerAmbientPaint.setColor(ContextCompat.getColor(getBaseContext(), R.color.divider_ambient));
+
+            // initialize background paints
+            mBackgroundPaint = new Paint();
+            mBackgroundPaint.setColor(ContextCompat.getColor(getBaseContext(), R.color.background));
+
+            mBackgroundAmbientPaint = new Paint();
+            mBackgroundAmbientPaint.setColor(ContextCompat.getColor(getBaseContext(), R.color.background_ambient));
+
+            mTextPaint = createTextPaint(ContextCompat.getColor(getBaseContext(), R.color.digital_text), NORMAL_TYPEFACE);
+            mTextBoldPaint = createTextPaint(ContextCompat.getColor(getBaseContext(), R.color.digital_text), BOLD_TYPEFACE);
+
+            mYOffset = resources.getDimension(R.dimen.line_height);
+            mYOffset = resources.getDimension(R.dimen.digital_y_offset);
+            mLineHeight = resources.getDimension(R.dimen.line_height);
+
+            //mHandPaint = new Paint();
+            //mHandPaint.setColor(resources.getColor(R.color.analog_hands));
+            //mHandPaint.setStrokeWidth(resources.getDimension(R.dimen.analog_hand_stroke));
+            //mHandPaint.setAntiAlias(true);
+            //mHandPaint.setStrokeCap(Paint.Cap.ROUND);
 
             mTime = new Time();
         }
+
+        private Paint createTextPaint(int textColor, Typeface typeface) {
+            Paint paint = new Paint();
+
+            paint.setColor(textColor);
+            paint.setTypeface(typeface);
+            paint.setAntiAlias(true);
+
+            return paint;
+        }
+
+        private Paint createTextPaint(int textColor, float textSize, Typeface typeface) {
+            Paint paint = new Paint();
+
+            paint.setColor(textColor);
+            paint.setTypeface(typeface);
+            paint.setAntiAlias(true);
+            paint.setTextSize(textSize);
+
+            return paint;
+        }
+
 
         @Override
         public void onDestroy() {
@@ -194,6 +265,7 @@ public class SunshineWatchFace extends CanvasWatchFaceService {
                 canvas.drawRect(0, 0, canvas.getWidth(), canvas.getHeight(), mBackgroundPaint);
             }
 
+            /*
             // Find the center. Ignore the window insets so that, on round watches with a
             // "chin", the watch face is centered on the entire screen, not just the usable
             // portion.
@@ -222,6 +294,20 @@ public class SunshineWatchFace extends CanvasWatchFaceService {
             float hrX = (float) Math.sin(hrRot) * hrLength;
             float hrY = (float) -Math.cos(hrRot) * hrLength;
             canvas.drawLine(centerX, centerY, centerX + hrX, centerY + hrY, mHandPaint);
+            */
+
+            // Draw H:MM in ambient mode or H:MM:SS in interactive mode.
+            // draw a date string
+            String textDate = mTime.format("%a %b %d %Y").toUpperCase();
+            Paint datePaint = mAmbient ? mDateAmbientPaint : mDatePaint;
+            Rect dateBounds = new Rect();
+            datePaint.getTextBounds(textDate, 0, textDate.length(), dateBounds);
+            canvas.drawText(textDate, (bounds.width() - dateBounds.width()) / 2, bounds.height() / 2 - 1 - dateBounds.height() - mLineHeight, datePaint);
+
+            // draw a horizontal divider
+            if (!mAmbient) {
+                canvas.drawRect((bounds.width() * 3) / 8, bounds.height() / 2 - 1, (bounds.width() * 5) / 8, bounds.height() / 2 + 1, mDividerPaint);
+            }
         }
 
         @Override
@@ -258,6 +344,21 @@ public class SunshineWatchFace extends CanvasWatchFaceService {
             }
             mRegisteredTimeZoneReceiver = false;
             SunshineWatchFace.this.unregisterReceiver(mTimeZoneReceiver);
+        }
+
+        @Override
+        public void onApplyWindowInsets(WindowInsets insets) {
+            super.onApplyWindowInsets(insets);
+
+            // Load resources that have alternate values for round watches.
+            Resources resources = SunshineWatchFace.this.getResources();
+            boolean isRound = insets.isRound();
+            mXOffset = resources.getDimension(isRound
+                    ? R.dimen.digital_x_offset_round : R.dimen.digital_x_offset);
+            float textSize = resources.getDimension(isRound
+                    ? R.dimen.digital_text_size_round : R.dimen.digital_text_size);
+
+            mTextPaint.setTextSize(textSize);
         }
 
         /**

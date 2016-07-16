@@ -1,11 +1,11 @@
 [
     {
-        "merged": "/home/kev/Desktop/Sunshine/app/build/intermediates/res/merged/debug/xml/authenticator.xml",
-        "source": "/home/kev/Desktop/Sunshine/app/src/main/res/xml/authenticator.xml"
-    },
-    {
         "merged": "/home/kev/Desktop/Sunshine/app/build/intermediates/res/merged/debug/xml/syncadapter.xml",
         "source": "/home/kev/Desktop/Sunshine/app/src/main/res/xml/syncadapter.xml"
+    },
+    {
+        "merged": "/home/kev/Desktop/Sunshine/app/build/intermediates/res/merged/debug/xml/authenticator.xml",
+        "source": "/home/kev/Desktop/Sunshine/app/src/main/res/xml/authenticator.xml"
     },
     {
         "merged": "/home/kev/Desktop/Sunshine/app/build/intermediates/res/merged/debug/xml/pref_general.xml",
